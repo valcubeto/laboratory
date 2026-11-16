@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+if ! [ -d "$PWD/tasks" ]; then
+    echo "Please execute from workspace root."
+    exit 1
+fi
+
+clang \
+    -std=gnu17 \
+    -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Wstrict-prototypes \
+    -g -O3 \
+    src/* -o out/lab-ls \
+    && ./out/lab-ls "$@"
